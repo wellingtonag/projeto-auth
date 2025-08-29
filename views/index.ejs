@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação Segura</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login ou Registro</h1>
+        
+        <% if (message) { %>
+            <div class="message"><%= message %></div>
+        <% } %>
+
+        <form action="/login" method="post">
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="Usuário" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        <form action="/register" method="post">
+            <h2>Registro</h2>
+            <input type="text" name="username" placeholder="Novo Usuário" required>
+            <input type="password" name="password" placeholder="Nova Senha" required>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>
