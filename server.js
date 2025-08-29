@@ -18,11 +18,17 @@ const pool = new Pool({
 });
 
 // Configura o Express
+// IMPORTANTE:
+// Configure o express.static ANTES das suas rotas.
+// Isso garante que o servidor procure por arquivos estáticos
+// na pasta 'public' antes de tentar renderizar as páginas.
+app.use(express.static(path.join(__dirname, 'public'))); // Para arquivos estáticos (CSS)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Configura o EJS para a pasta 'views'
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static('public')); // Para arquivos estáticos (CSS)
 
 // Rotas da aplicação 
 
